@@ -1,0 +1,58 @@
+﻿@model ProjectFixIt.Models.Notification
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edytuj</h1>
+
+<h4>Zgłoszenie</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label">Nazwa Zgłoszenia</label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label">Opis Zgłoszenia</label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WorkerName" class="control-label">Pracownik Odpowiedzialny</label>
+                <select asp-for="WorkerName" class="form-control">
+                    <option value="Tomek">Tomek</option>
+                    <option value="Dawid">Dawid</option>
+                    <option value="Patryk">Patryk</option>
+                    <option value="Kacper">Kacper</option>
+                    <option value="Wojtek">Wojtek</option>
+                </select>
+                <span asp-validation-for="WorkerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Piority" class="control-label">Piorytet</label>
+                <select asp-for="Piority" class="form-control">
+                    <option value="Wysoki">Wysoki</option>
+                    <option value="Średni">Średni</option>
+                    <option value="Niski">Niski</option>
+                </select>
+                <span asp-validation-for="Piority" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

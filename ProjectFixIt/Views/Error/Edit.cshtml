@@ -1,0 +1,59 @@
+﻿@model ProjectFixIt.Models.Error
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edytuj</h1>
+
+<h4>Błąd</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label">Nazwa Błędu</label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ErrorMessage" class="control-label">Treść Błedu</label>
+                <input asp-for="ErrorMessage" class="form-control" />
+                <span asp-validation-for="ErrorMessage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WorkerFound" class="control-label">Znaleziony Przez</label>
+                <select asp-for="WorkerFound" class="form-control">
+                    <option value="Tomek">Tomek</option>
+                    <option value="Dawid">Dawid</option>
+                    <option value="Patryk">Patryk</option>
+                    <option value="Kacper">Kacper</option>
+                    <option value="Wojtek">Wojtek</option>
+                </select>
+                <span asp-validation-for="WorkerFound" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RepairStatus" class="control-label">Status</label>
+                <select asp-for="RepairStatus" class="form-control">
+                    <option value="Do Rozwiązania">Do Rozwiązania</option>
+                    <option value="W Trakcie">W Trakcie</option>
+                    <option value="Rozwiązany">Rozwiązany</option>
+
+                </select>
+                <span asp-validation-for="RepairStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Wróć do listy</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

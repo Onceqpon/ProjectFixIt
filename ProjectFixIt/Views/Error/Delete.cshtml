@@ -1,0 +1,56 @@
+﻿@model ProjectFixIt.Models.Error
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Usuń Błąd</h1>
+
+<h3>Czy jesteś pewny że chcesz to usunąć</h3>
+<div>
+    <h4>Error</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class="col-sm-2">
+            Nazwa Błędu
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class="col-sm-2">
+            Treść Błedu
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ErrorMessage)
+        </dd>
+        <dt class="col-sm-2">
+            Znaleziony Przez
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.WorkerFound)
+        </dd>
+        <dt class="col-sm-2">
+            Status
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RepairStatus)
+        </dd>
+        <dt class="col-sm-2">
+            Data Znalezienia
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FoundDate)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Wróć do listy</a>
+    </form>
+</div>

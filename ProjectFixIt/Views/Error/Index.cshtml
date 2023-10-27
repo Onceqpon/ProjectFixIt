@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ProjectFixIt.Models.Error>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Błędy</h1>
+
+<p>
+    <a asp-action="Create">Zgłoś Błąd</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nazwa Błędu
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+               Data Wykrycia
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RepairStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FoundDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

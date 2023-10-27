@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ProjectFixIt.Models.Notification>
+
+@{
+    ViewData["Title"] = "Notification";
+}
+
+<h1>Zgłoszenia</h1>
+
+<p>
+    <a asp-action="Create">Utwórz Zgłoszenie</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nazwa Zgłoszenia
+            </th>
+            <th>
+                Piorytet
+            </th>
+            <th>
+                Data Utworzenia
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Piority)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NotificationDate)
+            </td>
+            <td>
+                    @Html.ActionLink("Edit", "Edit", new { id =item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id =item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id =item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
